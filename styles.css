@@ -378,17 +378,52 @@ h1, h2, h3, p { margin: 0; }
 @media (max-width: 860px) {
   .header-inner {
     height: auto;
-    flex-wrap: wrap;
-    padding: 12px 16px;
-    row-gap: 8px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    max-width: none;
   }
-  .nav-desktop { order: 2; flex: 1 1 100%; flex-wrap: wrap; }
-  .tools { margin-left: auto; }
+  .nav-desktop {
+    order: 0;
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .nav-desktop a {
+    text-align: center;
+    padding: 14px 4px;
+    border-radius: 0;
+    font-size: 14px;
+  }
+  .nav-desktop a:hover { background: transparent; }
+  .tools {
+    margin: 0;
+    border-left: 1px solid var(--line);
+    padding: 0 6px;
+  }
+  .tools .btn { display: none; }
+  .intro { padding: 28px 16px 0; }
+  .intro h1 { font-size: 36px; }
+  .intro .lede { font-size: 16px; }
+  .facts { margin-top: 24px; }
+  .facts div { padding: 16px 10px; text-align: center; }
+  .facts strong { font-size: 17px; }
+  .section { padding: 36px 16px; }
   .about, .grid { grid-template-columns: 1fr; }
   .facts { grid-template-columns: 1fr 1fr; }
   .facts div:nth-child(2n) { border-right: 0; }
-  .about { grid-template-columns: 1fr; }
-  .about img { height: 280px; }
+  .about { grid-template-columns: 1fr; gap: 18px; }
+  .about img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+  }
+  .famous-list { gap: 18px 12px; }
+  .famous-person { width: calc(50% - 12px); }
   .shot > img { height: 180px; }
   .podium { flex-direction: column; align-items: center; }
   .step { width: min(340px, 100%); }
